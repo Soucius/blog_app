@@ -17,33 +17,43 @@
 
             <div class="container mt-3 mb-3 text-center">
                 <a href="createBlog.php" class="btn btn-success">Create Blog</a>
-
-                <a href="updateBlog.php" class="btn btn-info text-white">Update Blog</a>
-
-                <a href="deleteBlog.php" class="btn btn-danger">Delete Blog</a>
             </div>
 
-            <?php
-                foreach ($userBlogs as $userBlog) {
-                    ?>
-                    <div class="card-body">
-                        <div class="container">
-                            <div class="card" style="width: 18rem;">
-                                <img src="<?= $userBlog['img']; ?>" class="card-img-top" alt="<?= $userBlog['title']; ?>">
+            <div class="row">
+                <?php
+                    foreach ($userBlogs as $userBlog) {
+                        ?>
+                        <div class="col-4 mb-3">
+                            <div class="card-body">
+                                <div class="container">
+                                    <div class="card" style="width: 18rem;">
+                                        <img src="<?= $userBlog['img']; ?>" class="card-img-top" alt="<?= $userBlog['title']; ?>">
+        
+                                        <div class="card-body">
+                                            <h5 class="card-title"><?= $userBlog['title']; ?></h5>
+        
+                                            <p class="card-text"><?= $userBlog['body']; ?></p>
+        
+                                            <p class="card-text"><?= $userBlog['createdDate']; ?></p>
+                                        </div>
 
-                                <div class="card-body">
-                                    <h5 class="card-title"><?= $userBlog['title']; ?></h5>
+                                        <div class="card-footer">
+                                            <form action="updateBlog.php" method="post">
+                                                <input type="submit" class="btn btn-info text-white" name="updateForm" value="Update Blog">
+                                            </form>
 
-                                    <p class="card-text"><?= $userBlog['body']; ?></p>
-
-                                    <p class="card-text"><?= $userBlog['createdDate']; ?></p>
+                                            <form action="deleteBlog.php" method="post">
+                                                <input type="submit" class="btn btn-danger" value="Delete Blog">
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <?php
-                }
-            ?>
+                        <?php
+                    }
+                ?>
+            </div>
     
             <div class="card-footer">
                 <span>Total blogs: <?= $totalUserBlogs; ?></span>
