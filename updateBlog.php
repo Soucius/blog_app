@@ -25,7 +25,7 @@
                 $previousBlogBody = "";
                 $previousBlogImage = "";
 
-                if ($_POST["updateForm"]) {
+                if (@$_POST["updateForm"]) {
                     foreach ($previousDatas as $previousData) {
                         $previousBlogTitle = $previousData['title'];
                         $previousBlogBody = $previousData['body'];
@@ -40,6 +40,10 @@
                         ":body" => $_POST['currentBlogBody'],
                         ":img" => $_POST['currentBlogImage'],
                     ]);
+
+                    header('refresh:1;Location=index.php');
+
+                    echo "<div class='alert alert-success'>Updated!</div>";
                 }
             ?>
 

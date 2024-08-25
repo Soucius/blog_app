@@ -15,11 +15,11 @@
             </div>
     
             <div class="card-body">
-                <div class="row">
+                <div class="row align-items-start">
                     <?php
                         foreach ($blogs as $blog) {
                             ?>
-                            <div class="col-4 mb-3">
+                            <div class="col-6 col-md-4 col-sm-6 col-xs-12 mb-3 mx-3">
                                 <div class="card" style="width: 18rem; height: auto;">
                                     <img src="<?= $blog['img']; ?>" class="card-img-top" alt="<?= $blog['title']; ?>">
             
